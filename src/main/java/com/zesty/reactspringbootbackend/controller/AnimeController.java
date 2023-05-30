@@ -1,7 +1,7 @@
 package com.zesty.reactspringbootbackend.controller;
 
-import com.zesty.reactspringbootbackend.db.UserRepository;
-import com.zesty.reactspringbootbackend.model.User;
+import com.zesty.reactspringbootbackend.model.Anime;
+import com.zesty.reactspringbootbackend.services.AnimeServices;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,20 +13,20 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController @Slf4j
-@RequestMapping(path="api/user")
-public class UserController {
+@RequestMapping(path="api/anime")
+public class AnimeController {
 
     @Autowired
-    private UserRepository userRepository;
+    private AnimeServices animeServices;
 
-    @PostMapping("/createUser")
-    User createUser(@RequestBody User newUser) {
-        return userRepository.save(newUser);
+    @PostMapping("/createAnime")
+    Anime createAnimeEntry(@RequestBody Anime newAnime) {
+       return animeServices.createAnime(newAnime);
     }
 
     @GetMapping("/users")
-    List<User> getAllUsers() {
-        return userRepository.findAll();
+    List<Anime> getAllAnimeEntries() {
+        return animeServices.getAllAnime();
     }
 
 }
