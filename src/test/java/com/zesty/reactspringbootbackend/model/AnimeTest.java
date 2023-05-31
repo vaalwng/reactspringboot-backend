@@ -30,16 +30,16 @@ public class AnimeTest {
         val anime = createAnime();
         assertEquals("Attack on Titan", anime.getTitle());
         assertEquals(24, anime.getEpisodeCount());
-        assertEquals(2013, anime.getYearOfRelease());
+        assertEquals(2013, anime.getReleaseYear());
         assertEquals("IG Port's Wit Studio", anime.getStudio());
-        assertFalse(anime.isCurrentlyAiring());
+        assertFalse(anime.isSimulcast());
         assertEquals(9.5, anime.getScore());
     }
 
     @Test @DisplayName("toString")
     void string() {
         verifyToString(
-            "Anime(id=null, title=Attack on Titan, episodeCount=24, yearOfRelease=2013, studio=IG Port's Wit Studio, isCurrentlyAiring=false, score=9.5)",
+            "Anime(id=null, title=Attack on Titan, episodeCount=24, releaseYear=2013, studio=IG Port's Wit Studio, isSimulcast=false, score=9.5)",
             createAnime()
         );
     }
@@ -53,7 +53,7 @@ public class AnimeTest {
     void serdes() throws IOException {
         verifySerdes(
             createAnime(),
-            "{\"id\":null,\"title\":\"Attack on Titan\",\"studio\":\"IG Port's Wit Studio\",\"score\":9.5,\"episodeCount\":24,\"yearOfRelease\":2013,\"isCurrentlyAiring\":false}"
+            "{\"id\":null,\"title\":\"Attack on Titan\",\"studio\":\"IG Port's Wit Studio\",\"score\":9.5,\"episodeCount\":24,\"releaseYear\":2013,\"isSimulcast\":false}"
         );
     }
 

@@ -17,13 +17,10 @@ public class Anime {
     @Id @GeneratedValue
     private Long id;
     private String title;
-    @JsonProperty("episodeCount")
-    private Integer episodeCount;
-    @JsonProperty("yearOfRelease")
-    private int yearOfRelease;
+    @JsonProperty("episodeCount") private Integer episodeCount;
+    @JsonProperty("releaseYear") private int releaseYear;
     private String studio;
-    @JsonProperty("isCurrentlyAiring")
-    private boolean isCurrentlyAiring;
+    @JsonProperty("isSimulcast") private boolean isSimulcast;
     private Double score;
 
     public Anime() {
@@ -31,15 +28,15 @@ public class Anime {
 
     public Anime(String title,
                  Integer episodeCount,
-                 int yearOfRelease,
+                 int releaseYear,
                  String studio,
-                 boolean isCurrentlyAiring,
+                 boolean isSimulcast,
                  Double score) {
         this.title = title;
         this.episodeCount = episodeCount;
-        this.yearOfRelease = yearOfRelease;
+        this.releaseYear = releaseYear;
         this.studio = studio;
-        this.isCurrentlyAiring = isCurrentlyAiring;
+        this.isSimulcast = isSimulcast;
         this.score = score;
     }
 
