@@ -4,6 +4,7 @@ import com.zesty.reactspringbootbackend.model.Anime;
 import com.zesty.reactspringbootbackend.services.AnimeServices;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,18 +14,18 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController @Slf4j
-@RequestMapping(path="api/anime")
+@RequestMapping(path="api/anime") @CrossOrigin("http://localhost:3000")
 public class AnimeController {
 
     @Autowired
     private AnimeServices animeServices;
 
-    @PostMapping("/createAnime")
+    @PostMapping("/create-anime")
     Anime createAnimeEntry(@RequestBody Anime newAnime) {
        return animeServices.createAnime(newAnime);
     }
 
-    @GetMapping("/users")
+    @GetMapping("/getall-anime")
     List<Anime> getAllAnimeEntries() {
         return animeServices.getAllAnime();
     }

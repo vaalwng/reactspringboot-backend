@@ -21,7 +21,6 @@ public class AnimeTest {
             2013,
             "IG Port's Wit Studio",
             false,
-            true,
             9.5
         );
     }
@@ -33,14 +32,14 @@ public class AnimeTest {
         assertEquals(24, anime.getEpisodeCount());
         assertEquals(2013, anime.getYearOfRelease());
         assertEquals("IG Port's Wit Studio", anime.getStudio());
-        assertFalse(anime.isAiring());
-        assertTrue(anime.isWatching());
+        assertFalse(anime.isCurrentlyAiring());
         assertEquals(9.5, anime.getScore());
     }
 
     @Test @DisplayName("toString")
     void string() {
-        verifyToString("Anime(id=null, title=Attack on Titan, episodeCount=24, yearOfRelease=2013, studio=IG Port's Wit Studio, isAiring=false, isWatching=true, score=9.5)",
+        verifyToString(
+            "Anime(id=null, title=Attack on Titan, episodeCount=24, yearOfRelease=2013, studio=IG Port's Wit Studio, isCurrentlyAiring=false, score=9.5)",
             createAnime()
         );
     }
@@ -52,8 +51,9 @@ public class AnimeTest {
 
     @Test @DisplayName("serdes")
     void serdes() throws IOException {
-        verifySerdes(createAnime(),
-            "{\"id\":null,\"title\":\"Attack on Titan\",\"studio\":\"IG Port's Wit Studio\",\"score\":9.5,\"episodeCount\":24,\"yearOfRelease\":2013,\"isAiring\":false,\"isWatching\":true}"
+        verifySerdes(
+            createAnime(),
+            "{\"id\":null,\"title\":\"Attack on Titan\",\"studio\":\"IG Port's Wit Studio\",\"score\":9.5,\"episodeCount\":24,\"yearOfRelease\":2013,\"isCurrentlyAiring\":false}"
         );
     }
 

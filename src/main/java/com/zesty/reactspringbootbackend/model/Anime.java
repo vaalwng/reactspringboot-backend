@@ -22,10 +22,8 @@ public class Anime {
     @JsonProperty("yearOfRelease")
     private int yearOfRelease;
     private String studio;
-    @JsonProperty("isAiring")
-    private boolean isAiring;
-    @JsonProperty("isWatching")
-    private boolean isWatching;
+    @JsonProperty("isCurrentlyAiring")
+    private boolean isCurrentlyAiring;
     private Double score;
 
     public Anime() {
@@ -35,15 +33,13 @@ public class Anime {
                  Integer episodeCount,
                  int yearOfRelease,
                  String studio,
-                 boolean isAiring,
-                 boolean isWatching,
+                 boolean isCurrentlyAiring,
                  Double score) {
         this.title = title;
         this.episodeCount = episodeCount;
         this.yearOfRelease = yearOfRelease;
         this.studio = studio;
-        this.isAiring = isAiring;
-        this.isWatching = isWatching;
+        this.isCurrentlyAiring = isCurrentlyAiring;
         this.score = score;
     }
 
